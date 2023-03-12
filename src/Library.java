@@ -53,17 +53,17 @@ public class Library {
         Book book;
         
         String s = "";
-        Integer i = -1;
+        int i = -1;
         
         try{
-            System.out.print("\n - Digite o nome do livro: ");
+            System.out.print("Digite o nome do livro: ");
             s = br.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
         
         try{
-            System.out.print(" - Digite a ID do livro: ");
+            System.out.print("Digite a ID do livro: ");
             i = Integer.parseInt(br.readLine());
             if(this.existenceId(i)) {
                 System.out.println("Já existe um livro com esse ID.");
@@ -77,9 +77,6 @@ public class Library {
         }
         
         book = new Book(s,i);
-        System.out.println("Criação do novo livro -- ");
-        System.out.println("Nome: " + book.name);
-        System.out.println(("ID: " + book.id));
         
         if(this.first == null){
             this.first = book;
@@ -102,34 +99,38 @@ public class Library {
             if(toRemove.id == id){
                 if(i == 0 && toRemove.next == null){  //first and only
                     this.first = null;
-                    System.out.println("Livro " + toRemove.name + " excluído.");
+                    System.out.println("Livro " + toRemove.name + " removido.");
                     return;
                 }
                 if(i == 0){  //first and not the only one
                     toRemove.next.previous = null;
                     this.first = toRemove.next;
-                    System.out.println("Livro " + toRemove.name + " excluído.");
+                    System.out.println("Livro " + toRemove.name + " removido.");
                     return;
                 }
                 if(i == len - 1){  //last
                     toRemove.previous.next = null;
-                    System.out.println("Livro " + toRemove.name + " excluído.");
+                    System.out.println("Livro " + toRemove.name + " removido.");
                     return;
                 }
                 toRemove.previous.next = toRemove.next;
                 toRemove.next.previous = toRemove.previous;
-                System.out.println("Livro " + toRemove.name + " excluído.");
+                System.out.println("Livro " + toRemove.name + " removido.");
                 break;
             }
         }
-        
         System.out.println("O ID digitada não existe na base de livros.");
     }
     
-    public void show(){
+    public void showBooks(){
         Book current = this.last;
-    
-        System.out.print("\nLivros disponíveis: \n");
+        
+        if(current == null){
+            System.out.println("Não há livros.");
+            return;
+        }
+        
+            System.out.print("\nLivros disponíveis: \n");
         while(current != null){
             System.out.println(" -> " + current.name);
             current = current.previous;
