@@ -6,8 +6,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         
         System.out.print("SISTEMA BIBLIOTECÁRIO\n");
-        
-        while(true){
+        int stop = 0;
+        while(stop != 1){
             System.out.print("\n Ações disponíveis:\n" +
                     " [1] Listar livros da biblioteca\n" +
                     " [2] Verificar se a biblioteca possui ou não livros\n" +
@@ -30,7 +30,7 @@ public class Main {
                     System.out.println("A biblioteca tem, nesse momento, " + library.length() + " livros.");
                     continue;
                 case 4:
-                    System.out.println("ID do livro: ");
+                    System.out.print("ID do livro: ");
                     int id = sc.nextInt();
                     if (library.existenceId(id)) System.out.println("O livro está na biblioteca.");
                     else System.out.println("O livro não está na biblioteca.");
@@ -45,6 +45,7 @@ public class Main {
                     continue;
                 case 7:
                     System.out.println("Sistema encerrado.");
+                    stop = 1;
                     break;
                 default:
                     System.out.println("Opção inválida!");
