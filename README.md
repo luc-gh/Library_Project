@@ -2,6 +2,10 @@
 Simulação de sistema de biblioteca usando listas duplamente encadeadas em Java, para um projeto da matéria de Estrutura de Dados do curso 
 de Ciência da computação, na UFAL Arapiraca.
 
+**Docker image**
+---
+Como o arquivo gerado no Docker é muito grande, deixarei [***este link***](https://drive.google.com/file/d/1j9Niw2J8hQF3ENFzb_TV0F3yNyk04oTV/view?usp=sharing) do GDrive para fazer o download. O arquivo tem 101MB e gera uma imagem que deve executar o arquivo [Library.jar](out/artifacts/Library_jar/Library.jar), deste repositório. Caso ele não funcione, seria preciso instalar o Java 8 para executar tal arquivo.
+
 **Sobre os códigos**
 ---
 > [**Main**](src/Main.java)
